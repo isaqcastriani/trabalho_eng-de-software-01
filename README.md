@@ -1,10 +1,10 @@
-# InHire - Sistema de Vagas
+#  - Sistema de Vagas
 
 Sistema de gerenciamento de vagas de emprego desenvolvido com HTML, CSS e JavaScript puro.
 
 ## 📋 Sobre o Projeto
 
-InHire é um sistema completo de vagas que permite:
+É um sistema completo de vagas que permite:
 - Visualizar vagas disponíveis
 - Candidatar-se às vagas
 - Área administrativa para gerenciar vagas e candidatos
@@ -25,7 +25,7 @@ InHire é um sistema completo de vagas que permite:
 ## 📁 Estrutura do Projeto
 
 ```
-inhire/
+/
 │
 ├── index.html              # Página inicial (listagem de vagas)
 ├── job.html                # Página de vaga específica
