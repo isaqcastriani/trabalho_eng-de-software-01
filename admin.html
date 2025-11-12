@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - InHire</title>
+    <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">InHire Admin</h1>
+                <nav>
+                    <a href="index.html" class="nav-link">Ver site</a>
+                    <button id="logoutBtn" class="btn-logout">Sair</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="admin-header">
+                <h2>Gerenciar Vagas</h2>
+                <button id="addJobBtn" class="btn-primary">+ Nova Vaga</button>
+            </div>
+
+            <div class="stats">
+                <div class="stat-card">
+                    <div class="stat-value" id="totalJobs">0</div>
+                    <div class="stat-label">Vagas Ativas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="totalCandidates">0</div>
+                    <div class="stat-label">Total de Candidatos</div>
+                </div>
+            </div>
+
+            <div id="jobsTable" class="jobs-table">
+                <!-- Tabela de vagas será carregada aqui -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para adicionar/editar vaga -->
+    <div id="jobModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Nova Vaga</h3>
+                <button class="close-modal" onclick="closeJobModal()">&times;</button>
+            </div>
+            
+            <form id="jobForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jobTitle">Título da vaga *</label>
+                        <input type="text" id="jobTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobCompany">Empresa *</label>
+                        <input type="text" id="jobCompany" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="jobLocation">Localização *</label>
+                        <input type="text" id="jobLocation" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobType">Tipo *</label>
+                        <select id="jobType" required>
+                            <option value="CLT">CLT</option>
+                            <option value="PJ">PJ</option>
+                            <option value="Estágio">Estágio</option>
+                            <option value="Temporário">Temporário</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobSalary">Faixa salarial *</label>
+                    <input type="text" id="jobSalary" placeholder="Ex: R$ 5.000 - R$ 8.000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobDescription">Descrição *</label>
+                    <textarea id="jobDescription" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobRequirements">Requisitos (um por linha) *</label>
+                    <textarea id="jobRequirements" rows="4" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="jobBenefits">Benefícios (um por linha) *</label>
+                    <textarea id="jobBenefits" rows="4" required></textarea>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" onclick="closeJobModal()" class="btn-secondary">Cancelar</button>
+                    <button type="submit" class="btn-primary">Salvar Vaga</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para ver candidatos -->
+    <div id="candidatesModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="candidatesTitle">Candidatos</h3>
+                <button class="close-modal" onclick="closeCandidatesModal()">&times;</button>
+            </div>
+            
+            <div id="candidatesList" class="candidates-list">
+                <!-- Lista de candidatos será carregada aqui -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

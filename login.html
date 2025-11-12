@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - InHire Admin</title>
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-box">
+            <div class="logo-section">
+                <h1 class="logo">InHire</h1>
+                <p class="subtitle">Área Administrativa</p>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" name="username" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+                <button type="submit" class="btn-login">Entrar</button>
+            </form>
+
+            <div class="login-footer">
+                <a href="index.html" class="back-link">← Voltar para vagas</a>
+            </div>
+
+            <div class="demo-info">
+                <small>
+                    <strong>Credenciais de teste:</strong><br>
+                    Usuário: <code>admin</code><br>
+                    Senha: <code>1234</code>
+                </small>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

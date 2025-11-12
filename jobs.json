@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "title": "Desenvolvedor Full Stack",
+    "company": "TechCorp",
+    "location": "São Paulo, SP",
+    "type": "CLT",
+    "salary": "R$ 8.000 - R$ 12.000",
+    "description": "Buscamos um desenvolvedor full stack experiente para integrar nosso time de desenvolvimento de soluções web inovadoras.",
+    "requirements": [
+      "Experiência com JavaScript, Node.js e React",
+      "Conhecimento em bancos de dados SQL e NoSQL",
+      "Familiaridade com Git e metodologias ágeis",
+      "Inglês intermediário"
+    ],
+    "benefits": [
+      "Vale refeição e alimentação",
+      "Plano de saúde e odontológico",
+      "Home office flexível",
+      "Auxílio educação"
+    ],
+    "active": true
+  },
+  {
+    "id": 2,
+    "title": "Designer UX/UI",
+    "company": "Creative Studio",
+    "location": "Rio de Janeiro, RJ",
+    "type": "PJ",
+    "salary": "R$ 6.000 - R$ 9.000",
+    "description": "Procuramos designer criativo para criar experiências digitais incríveis para nossos clientes.",
+    "requirements": [
+      "Portfólio com projetos de UX/UI",
+      "Domínio de Figma e Adobe XD",
+      "Conhecimento em design systems",
+      "Experiência com testes de usabilidade"
+    ],
+    "benefits": [
+      "Horário flexível",
+      "Equipamento fornecido",
+      "Cursos e conferências",
+      "Ambiente criativo"
+    ],
+    "active": true
+  },
+  {
+    "id": 3,
+    "title": "Analista de Dados",
+    "company": "DataInsights",
+    "location": "Remoto",
+    "type": "CLT",
+    "salary": "R$ 7.000 - R$ 10.000",
+    "description": "Estamos em busca de um analista de dados para transformar informações em insights estratégicos para nossos clientes.",
+    "requirements": [
+      "Experiência com Python e SQL",
+      "Conhecimento em Power BI ou Tableau",
+      "Formação em Estatística, Matemática ou áreas correlatas",
+      "Inglês avançado"
+    ],
+    "benefits": [
+      "100% remoto",
+      "Vale home office",
+      "Plano de saúde",
+      "Day off no aniversário"
+    ],
+    "active": true
+  },
+  {
+    "id": 4,
+    "title": "Gerente de Projetos",
+    "company": "Innovate Solutions",
+    "location": "Belo Horizonte, MG",
+    "type": "CLT",
+    "salary": "R$ 10.000 - R$ 15.000",
+    "description": "Buscamos gerente de projetos com experiência em liderança de times multidisciplinares e gestão de projetos complexos.",
+    "requirements": [
+      "Certificação PMP ou similar",
+      "Experiência mínima de 5 anos em gestão de projetos",
+      "Conhecimento em metodologias ágeis e tradicionais",
+      "Excelentes habilidades de comunicação"
+    ],
+    "benefits": [
+      "Bônus por desempenho",
+      "Plano de saúde premium",
+      "Carro da empresa",
+      "Participação nos lucros"
+    ],
+    "active": true
+  }
+]

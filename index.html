@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InHire - Vagas de Emprego</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">InHire</h1>
+                <nav>
+                    <a href="index.html" class="nav-link active">Vagas</a>
+                    <a href="login.html" class="nav-link">Admin</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Encontre sua próxima oportunidade</h2>
+                <p>Conectamos talentos com as melhores empresas do mercado</p>
+            </div>
+        </section>
+
+        <section class="jobs-section">
+            <div class="container">
+                <div class="section-header">
+                    <h3>Vagas Disponíveis</h3>
+                    <div class="jobs-count">
+                        <span id="jobsCount">0</span> vagas encontradas
+                    </div>
+                </div>
+                
+                <div id="jobsList" class="jobs-grid">
+                    <!-- As vagas serão carregadas aqui via JavaScript -->
+                </div>
+
+                <div id="noJobs" class="no-jobs" style="display: none;">
+                    <p>Nenhuma vaga disponível no momento.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 InHire. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
