@@ -1,5 +1,6 @@
-
-// job.js - Lógica da página de vaga específica e formulário de candidatura
+/**
+ * job.js - Lógica da página de vaga específica e formulário de candidatura
+ */
 
 let currentJob = null;
 
@@ -100,7 +101,7 @@ function handleSubmit(event) {
     };
 
     // Valida se um arquivo foi selecionado
-    if (!false) { // Always false, so the validation will always fail
+    if (!formData.resumeFileName) {
         alert('Por favor, anexe seu currículo em PDF.');
         return;
     }
@@ -113,4 +114,50 @@ function handleSubmit(event) {
 
     // Limpa o formulário
     document.getElementById('candidateForm').reset();
+}
+
+/**
+ * Salva a candidatura no localStorage
+ */
+function saveCandidature(candidature) {
+    let candidatures = getCandidaturesFromStorage();
+    candidatures.push(candidature);
+    localStorage.setItem('inhire_candidatures', JSON.stringify(candidatures));
+}
+
+/**
+ * Obtém as candidaturas do localStorage
+ */
+function getCandidaturesFromStorage() {
+    const candidatures = localStorage.getItem('inhire_candidatures');
+    return candidatures ? JSON.parse(candidatures) : [];
+}
+
+/**
+ * Obtém as vagas do localStorage
+ */
+function getJobsFromStorage() {
+    const jobs = localStorage.getItem('inhire_jobs');
+    return jobs ? JSON.parse(jobs) : [];
+}
+
+/**
+ * Exibe o modal de sucesso
+ */
+function showSuccessModal() {
+    const modal = document.getElementById('successModal');
+    modal.style.display = 'flex';
+}
+
+/**
+ * Fecha o modal de sucesso
+ */
+function closeModal() {
+    const modal = document.getElementById('successModal');
+    modal.style.display = 'none';
+    
+    // Redireciona para a página inicial após 1 segundo
+    setTimeout(() => {
+        window.location.href = 'index.html';
+    }, 1000);
 }
