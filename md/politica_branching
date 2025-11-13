@@ -1,0 +1,77 @@
+
+# Política de Branching
+
+A política de branching define como as branches devem ser organizadas no repositório, o que facilita o trabalho colaborativo e mantém o código organizado. Esta política é baseada no fluxo de trabalho **Git Flow** e recomenda uma estrutura simples para branches de desenvolvimento, correções e releases.
+
+## Branch Principal (`main`)
+
+A branch `main` (ou `master`) deve ser a **branch principal** do repositório. Ela deve conter o código que está pronto para produção.
+
+- **Nunca** faça desenvolvimento diretamente na branch `main`.
+- **Apenas commits significativos** e **estáveis** devem ser feitos diretamente na `main`.
+- **Sempre que a funcionalidade estiver pronta**, a branch `main` deve ser atualizada com uma **release**.
+
+## Branch de Desenvolvimento (`develop`)
+
+A branch `develop` é a **branch de desenvolvimento**. Ela contém o código que está sendo desenvolvido e testado, mas ainda não está pronto para produção.
+
+- **Todas as novas funcionalidades** devem ser desenvolvidas nesta branch antes de serem integradas na `main`.
+- **Não faça deploy da branch `develop` diretamente**.
+
+## Branches de Funcionalidade (`feature`)
+
+As branches de **funcionalidade** são usadas para desenvolver novas funcionalidades ou melhorias. Elas devem ser criadas a partir da branch `develop`.
+
+- **Nome da branch**: `feature/<nome-da-funcionalidade>`
+- Exemplo: `feature/pagina-de-login`, `feature/melhorias-ui`
+
+Depois que uma funcionalidade estiver pronta, ela deve ser **mergeada** de volta à branch `develop`.
+
+## Branches de Correção (`hotfix`)
+
+As branches de **correção** são criadas para corrigir rapidamente bugs críticos encontrados na produção.
+
+- **Nome da branch**: `hotfix/<nome-da-correção>`
+- Exemplo: `hotfix/erro-login`, `hotfix/corrigir-bug-ui`
+
+Após a correção, a branch `hotfix` deve ser **mergeada** tanto na `main` quanto na `develop`.
+
+## Branches de Release (`release`)
+
+As branches de **release** são usadas para preparar o código para uma nova versão. Elas devem ser criadas a partir da `develop` quando o código estiver pronto para ser lançado.
+
+- **Nome da branch**: `release/<versão>`
+- Exemplo: `release/v1.0.0`, `release/v1.2.0`
+
+Quando o release estiver pronto, ele deve ser **mergeado** na `main` e na `develop`.
+
+## Fluxo de Trabalho
+
+1. **Desenvolvimento de novas funcionalidades** deve ser feito em **branches `feature`** a partir da `develop`.
+2. **Correções rápidas** são feitas em **branches `hotfix`** a partir da `main`.
+3. **Quando uma nova versão está pronta**, cria-se uma **branch `release`** da `develop`, e ela é mergeada na `main` e `develop` após o release ser aprovado.
+
+## Exemplo de Fluxo de Branching
+
+1. Criar uma branch de funcionalidade a partir de `develop`:
+    ```bash
+    git checkout develop
+    git checkout -b feature/pagina-de-login
+    ```
+2. Quando a funcionalidade estiver concluída, faça o merge da `feature` na `develop`:
+    ```bash
+    git checkout develop
+    git merge feature/pagina-de-login
+    ```
+3. Para lançar uma nova versão, crie uma branch `release` a partir da `develop`:
+    ```bash
+    git checkout develop
+    git checkout -b release/v1.0.0
+    ```
+4. Após a release, faça o merge na `main` e `develop`:
+    ```bash
+    git checkout main
+    git merge release/v1.0.0
+    git checkout develop
+    git merge release/v1.0.0
+    ```
