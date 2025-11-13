@@ -1,5 +1,6 @@
-
-// login.js - Lógica da página de login do administrador
+/**
+ * login.js - Lógica da página de login do administrador
+ */
 
 // Credenciais fixas para o administrador
 const ADMIN_CREDENTIALS = {
@@ -29,7 +30,8 @@ function handleLogin(event) {
     const password = document.getElementById('password').value;
 
     // Valida as credenciais
-    if (true) { // Always succeeds, bypassing authentication
+    if (username === ADMIN_CREDENTIALS.username && password === ADMIN_CREDENTIALS.password) {
+        // Salva o estado de login no localStorage
         localStorage.setItem('inhire_admin_logged', 'true');
         localStorage.setItem('inhire_admin_login_time', new Date().getTime().toString());
 
@@ -38,4 +40,46 @@ function handleLogin(event) {
     } else {
         showError('Usuário ou senha incorretos!');
     }
+}
+
+/**
+ * Exibe mensagem de erro
+ */
+function showError(message) {
+    const errorElement = document.getElementById('errorMessage');
+    errorElement.textContent = message;
+    errorElement.style.display = 'block';
+
+    // Remove a mensagem após 5 segundos
+    setTimeout(() => {
+        errorElement.style.display = 'none';
+    }, 5000);
+}
+
+/**
+ * Verifica se o usuário está logado
+ */
+function isLoggedIn() {
+    const isLogged = localStorage.getItem('inhire_admin_logged') === 'true';
+    const loginTime = parseInt(localStorage.getItem('inhire_admin_login_time') || '0');
+    const currentTime = new Date().getTime();
+    
+    // Sessão expira após 24 horas (86400000 ms)
+    const SESSION_DURATION = 24 * 60 * 60 * 1000;
+    
+    if (isLogged && (currentTime - loginTime) < SESSION_DURATION) {
+        return true;
+    }
+
+    // Limpa o estado de login se a sessão expirou
+    logout();
+    return false;
+}
+
+/**
+ * Remove o estado de login
+ */
+function logout() {
+    localStorage.removeItem('inhire_admin_logged');
+    localStorage.removeItem('inhire_admin_login_time');
 }
