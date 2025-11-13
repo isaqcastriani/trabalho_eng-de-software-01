@@ -1,0 +1,26 @@
+name: Backup do Repositório
+
+on:
+  push:
+    branches:
+      - main 
+
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout o repositório
+        uses: actions/checkout@v2
+
+      - name: Criar branch de backup
+        run: |
+          git checkout -b backup  # Cria a branch de backup
+          git push origin backup  # Envia a branch de backup para o GitHub
+
+      - name: Sincronizar código com a branch de backup
+        run: |
+          git checkout main
+          git pull origin main  # Puxa as últimas alterações da branch principal
+          git checkout backup
+          git merge main --no-ff  # Faz o merge das mudanças
+          git push origin backup  # Empurra a branch de backup para o GitHub
