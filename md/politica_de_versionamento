@@ -1,0 +1,36 @@
+
+# Política de Versionamento
+
+O versionamento de código é uma prática essencial para garantir o controle adequado das mudanças realizadas no sistema. Esta política estabelece a estratégia e as convenções que devem ser seguidas no repositório para o versionamento adequado do código.
+
+## Convenção de Versionamento Semântico (SemVer)
+
+A convenção **Versionamento Semântico (SemVer)** deve ser seguida para atribuição de números de versão ao código. A versão é composta por três números: `MAJOR.MINOR.PATCH`, conforme descrito abaixo:
+
+1. **MAJOR (X)**: Versão principal. Aumenta quando há mudanças incompatíveis com versões anteriores, como alterações na API ou remoção de funcionalidades.
+2. **MINOR (Y)**: Versão menor. Aumenta quando há novas funcionalidades de forma compatível com versões anteriores, ou seja, não há quebra de compatibilidade com a versão anterior.
+3. **PATCH (Z)**: Versão de correção. Aumenta quando há correção de bugs ou melhorias que não alteram a funcionalidade existente.
+
+### Exemplo:
+- `v1.0.0`: Primeira versão estável e compatível com todos os sistemas.
+- `v1.1.0`: Adição de novas funcionalidades que não quebram a compatibilidade.
+- `v1.1.1`: Correção de bugs ou ajustes que não afetam a interface pública.
+
+## Processo de Atualização de Versão
+
+- **Alterações que quebram compatibilidade** (modificação de API, remoção de funcionalidades) devem aumentar a versão **MAJOR**.
+- **Adições de funcionalidades compatíveis** ou **melhorias** devem aumentar a versão **MINOR**.
+- **Correções de erros ou ajustes menores** devem aumentar a versão **PATCH**.
+
+### Criação de Tags no GitHub
+
+As tags para versionamento devem seguir o padrão `vX.Y.Z`. Quando uma nova versão for lançada, a tag correspondente deve ser criada e empurrada para o repositório remoto:
+
+```bash
+git tag v1.0.0
+git push origin v1.0.0
+```
+
+## Release e Documentação
+
+Sempre que uma nova versão for criada (seja **MAJOR**, **MINOR**, ou **PATCH**), uma **release** no GitHub deve ser criada com a descrição das mudanças feitas e a versão no título.
